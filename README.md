@@ -89,15 +89,6 @@ Menjadi aplikasi #1 di Indonesia untuk monitoring cuaca dan sistem peringatan di
 
 <div align="center">
 
-| Home Screen | Sky Tracker | Earthquake |
-|-------------|-------------|------------|
-| ![Home](screenshots/home.png) | ![Sky](screenshots/sky.png) | ![Earthquake](screenshots/earthquake.png) |
-
-| Weather Details | Settings | Notifications |
-|----------------|----------|---------------|
-| ![Details](screenshots/details.png) | ![Settings](screenshots/settings.png) | ![Notif](screenshots/notification.png) |
-
-</div>
 
 ---
 
@@ -190,7 +181,7 @@ lib/
 ### **Clone Repository**
 
 ```bash
-git clone https://github.com/yourusername/tenkiro.git
+git clone https://github.com/FahryAditya/Tenkiro-Apps.git
 cd tenkiro
 ```
 
@@ -609,12 +600,6 @@ SOFTWARE.
 ---
 
 ## 📞 Kontak & Support
-
-- 📧 **Email**: support@tenkiro.app
-- 🌐 **Website**: https://tenkiro.app
-- 💬 **Discord**: https://discord.gg/tenkiro
-- 🐦 **Twitter**: @TenkiroApp
-- 📘 **Facebook**: /TenkiroApp
 
 ### **Support Channels**
 
