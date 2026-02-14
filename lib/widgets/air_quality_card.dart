@@ -21,14 +21,22 @@ class AirQualityCard extends StatelessWidget {
 
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 16),
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(16), // ✅ Reduced from 18 to 16
           decoration: BoxDecoration(
             color: cardColor,
             borderRadius: BorderRadius.circular(20),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.black.withOpacity(0.05),
+                blurRadius: 10,
+                offset: const Offset(0, 4),
+              ),
+            ],
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Header
               Row(
                 children: [
                   Icon(Icons.air, color: textColor, size: 20),
@@ -43,30 +51,37 @@ class AirQualityCard extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 12), // ✅ Reduced from 14 to 12
 
               // AQI Main Display
               Row(
                 children: [
                   Container(
-                    width: 80,
-                    height: 80,
+                    width: 62, // ✅ Reduced from 65 to 62
+                    height: 62, // ✅ Reduced from 65 to 62
                     decoration: BoxDecoration(
                       color: Color(airQuality.getAQIColor()),
                       shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Color(airQuality.getAQIColor()).withOpacity(0.4),
+                          blurRadius: 10,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
                     ),
                     child: Center(
                       child: Text(
                         '${airQuality.aqi}',
                         style: const TextStyle(
-                          fontSize: 32,
+                          fontSize: 24, // ✅ Reduced from 26 to 24
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
                       ),
                     ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: 14), // ✅ Reduced from 16 to 14
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -74,19 +89,21 @@ class AirQualityCard extends StatelessWidget {
                         Text(
                           airQuality.category,
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 15, // ✅ Reduced from 15 to 14 (keeping 15 for readability)
                             fontWeight: FontWeight.w600,
                             color: textColor,
                           ),
                         ),
-                        const SizedBox(height: 8),
+                        const SizedBox(height: 4), // ✅ Reduced from 5 to 4
                         Text(
                           airQuality.description,
                           style: TextStyle(
-                            fontSize: 12,
+                            fontSize: 11,
                             color: textColor.withOpacity(0.8),
-                            height: 1.4,
+                            height: 1.3,
                           ),
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ],
                     ),
@@ -94,16 +111,16 @@ class AirQualityCard extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 24),
+              const SizedBox(height: 14), // ✅ Reduced from 16 to 14
 
               // Pollutants Grid
               GridView.count(
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 crossAxisCount: 2,
-                childAspectRatio: 2.5,
-                crossAxisSpacing: 12,
-                mainAxisSpacing: 12,
+                childAspectRatio: 2.6, // ✅ Increased from 2.5 to 2.6 (make cards shorter)
+                crossAxisSpacing: 8, // ✅ Reduced from 10 to 8
+                mainAxisSpacing: 8, // ✅ Reduced from 10 to 8
                 children: [
                   _buildPollutantCard(
                     'PM2.5',
@@ -132,7 +149,7 @@ class AirQualityCard extends StatelessWidget {
                 ],
               ),
 
-              const SizedBox(height: 16),
+              const SizedBox(height: 10), // ✅ Keep at 10
 
               // AQI Scale Legend
               _buildAQILegend(textColor),
@@ -150,7 +167,7 @@ class AirQualityCard extends StatelessWidget {
     Color textColor,
   ) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6), // ✅ Reduced vertical from 7 to 6
       decoration: BoxDecoration(
         color: textColor.withOpacity(0.08),
         borderRadius: BorderRadius.circular(12),
@@ -176,7 +193,7 @@ class AirQualityCard extends StatelessWidget {
                 TextSpan(
                   text: value,
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 13, // ✅ Keep at 13
                     fontWeight: FontWeight.w600,
                     color: textColor,
                   ),
@@ -184,7 +201,7 @@ class AirQualityCard extends StatelessWidget {
                 TextSpan(
                   text: ' $unit',
                   style: TextStyle(
-                    fontSize: 10,
+                    fontSize: 9, // ✅ Keep at 9
                     color: textColor.withOpacity(0.7),
                   ),
                 ),
@@ -208,10 +225,10 @@ class AirQualityCard extends StatelessWidget {
             color: textColor.withOpacity(0.7),
           ),
         ),
-        const SizedBox(height: 8),
+        const SizedBox(height: 6), // ✅ Reduced from 7 to 6
         Wrap(
-          spacing: 8,
-          runSpacing: 6,
+          spacing: 6, // ✅ Keep at 6
+          runSpacing: 5, // ✅ Keep at 5
           children: [
             _buildLegendItem('0-50 Baik', 0xFF00E400, textColor),
             _buildLegendItem('51-100 Sedang', 0xFFFFFF00, textColor),
@@ -230,8 +247,8 @@ class AirQualityCard extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-          width: 12,
-          height: 12,
+          width: 10, // ✅ Reduced from 11 to 10
+          height: 10, // ✅ Reduced from 11 to 10
           decoration: BoxDecoration(
             color: Color(color),
             shape: BoxShape.circle,

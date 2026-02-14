@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tenkiro/models/weather_model.dart';
 import 'dart:math' as math;
 import '../utils/astronomy_utils.dart';
 

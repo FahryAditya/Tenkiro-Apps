@@ -1,0 +1,525 @@
+[
+  {
+    "id": "orion",
+    "name": "Orion",
+    "abbr": "Ori",
+    "name_id": "Pemburu",
+    "declination": 5.0,
+    "mythology": "Pemburu legendaris dalam mitologi Yunani",
+    "star_ids": ["HIP24436", "HIP25336", "HIP29038", "HIP27989", "HIP26727"],
+    "lines": [
+      {"star1": "HIP24436", "star2": "HIP26727"},
+      {"star1": "HIP26727", "star2": "HIP25336"},
+      {"star1": "HIP25336", "star2": "HIP29038"},
+      {"star1": "HIP29038", "star2": "HIP27989"}
+    ]
+  },
+  {
+    "id": "ursa_major",
+    "name": "Ursa Major",
+    "abbr": "UMa",
+    "name_id": "Beruang Besar",
+    "declination": 55.0,
+    "mythology": "Biduk Besar / Big Dipper",
+    "star_ids": ["HIP54061", "HIP53910", "HIP58001", "HIP59774", "HIP62956"],
+    "lines": [
+      {"star1": "HIP54061", "star2": "HIP53910"},
+      {"star1": "HIP53910", "star2": "HIP58001"},
+      {"star1": "HIP58001", "star2": "HIP59774"},
+      {"star1": "HIP59774", "star2": "HIP62956"}
+    ]
+  },
+  {
+    "id": "ursa_minor",
+    "name": "Ursa Minor",
+    "abbr": "UMi",
+    "name_id": "Beruang Kecil",
+    "declination": 75.0,
+    "mythology": "Biduk Kecil, berisi Polaris (Bintang Utara)",
+    "star_ids": ["HIP11767"],
+    "lines": []
+  },
+  {
+    "id": "cassiopeia",
+    "name": "Cassiopeia",
+    "abbr": "Cas",
+    "name_id": "Ratu Cassiopeia",
+    "declination": 60.0,
+    "mythology": "Ratu yang sombong, berbentuk huruf W",
+    "star_ids": ["HIP3179", "HIP746", "HIP4427"],
+    "lines": [
+      {"star1": "HIP3179", "star2": "HIP746"},
+      {"star1": "HIP746", "star2": "HIP4427"}
+    ]
+  },
+  {
+    "id": "scorpius",
+    "name": "Scorpius",
+    "abbr": "Sco",
+    "name_id": "Kalajengking",
+    "declination": -26.0,
+    "mythology": "Kalajengking yang membunuh Orion",
+    "star_ids": ["HIP80763", "HIP86228", "HIP85927"],
+    "lines": [
+      {"star1": "HIP80763", "star2": "HIP86228"},
+      {"star1": "HIP86228", "star2": "HIP85927"}
+    ]
+  },
+  {
+    "id": "crux",
+    "name": "Crux",
+    "abbr": "Cru",
+    "name_id": "Salib Selatan",
+    "declination": -60.0,
+    "mythology": "Konstelasi terkecil, simbol navigasi belahan selatan",
+    "star_ids": ["HIP62434", "HIP54061", "HIP60718", "HIP61084"],
+    "lines": [
+      {"star1": "HIP62434", "star2": "HIP60718"},
+      {"star1": "HIP54061", "star2": "HIP61084"}
+    ]
+  },
+  {
+    "id": "leo",
+    "name": "Leo",
+    "abbr": "Leo",
+    "name_id": "Singa",
+    "declination": 15.0,
+    "mythology": "Singa Nemea yang dibunuh Hercules",
+    "star_ids": ["HIP49669"],
+    "lines": []
+  },
+  {
+    "id": "taurus",
+    "name": "Taurus",
+    "abbr": "Tau",
+    "name_id": "Banteng",
+    "declination": 15.0,
+    "mythology": "Banteng Zeus yang menculik Europa",
+    "star_ids": ["HIP25336"],
+    "lines": []
+  },
+  {
+    "id": "gemini",
+    "name": "Gemini",
+    "abbr": "Gem",
+    "name_id": "Kembar",
+    "declination": 22.0,
+    "mythology": "Castor dan Pollux, saudara kembar",
+    "star_ids": ["HIP37826", "HIP36850"],
+    "lines": [
+      {"star1": "HIP37826", "star2": "HIP36850"}
+    ]
+  },
+  {
+    "id": "sagittarius",
+    "name": "Sagittarius",
+    "abbr": "Sgr",
+    "name_id": "Pemanah",
+    "declination": -25.0,
+    "mythology": "Centaur pemanah, mengarah ke pusat galaksi",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "cygnus",
+    "name": "Cygnus",
+    "abbr": "Cyg",
+    "name_id": "Angsa",
+    "declination": 40.0,
+    "mythology": "Angsa terbang, membentuk Salib Utara",
+    "star_ids": ["HIP97649"],
+    "lines": []
+  },
+  {
+    "id": "aquila",
+    "name": "Aquila",
+    "abbr": "Aql",
+    "name_id": "Elang",
+    "declination": 8.0,
+    "mythology": "Elang Zeus",
+    "star_ids": ["HIP80763"],
+    "lines": []
+  },
+  {
+    "id": "lyra",
+    "name": "Lyra",
+    "abbr": "Lyr",
+    "name_id": "Kecapi",
+    "declination": 36.0,
+    "mythology": "Kecapi Orpheus",
+    "star_ids": ["HIP91262"],
+    "lines": []
+  },
+  {
+    "id": "andromeda",
+    "name": "Andromeda",
+    "abbr": "And",
+    "name_id": "Putri Andromeda",
+    "declination": 37.0,
+    "mythology": "Putri yang diselamatkan Perseus",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "perseus",
+    "name": "Perseus",
+    "abbr": "Per",
+    "name_id": "Perseus",
+    "declination": 45.0,
+    "mythology": "Pahlawan yang membunuh Medusa",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "pegasus",
+    "name": "Pegasus",
+    "abbr": "Peg",
+    "name_id": "Kuda Terbang",
+    "declination": 20.0,
+    "mythology": "Kuda bersayap",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "virgo",
+    "name": "Virgo",
+    "abbr": "Vir",
+    "name_id": "Perawan",
+    "declination": -4.0,
+    "mythology": "Dewi Keadilan atau Pertanian",
+    "star_ids": ["HIP37279"],
+    "lines": []
+  },
+  {
+    "id": "aries",
+    "name": "Aries",
+    "abbr": "Ari",
+    "name_id": "Domba",
+    "declination": 19.0,
+    "mythology": "Domba emas",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "cancer",
+    "name": "Cancer",
+    "abbr": "Cnc",
+    "name_id": "Kepiting",
+    "declination": 20.0,
+    "mythology": "Kepiting yang menjepit Hercules",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "libra",
+    "name": "Libra",
+    "abbr": "Lib",
+    "name_id": "Timbangan",
+    "declination": -15.0,
+    "mythology": "Timbangan keadilan",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "capricornus",
+    "name": "Capricornus",
+    "abbr": "Cap",
+    "name_id": "Kambing Laut",
+    "declination": -20.0,
+    "mythology": "Kambing dengan ekor ikan",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "aquarius",
+    "name": "Aquarius",
+    "abbr": "Aqr",
+    "name_id": "Pembawa Air",
+    "declination": -10.0,
+    "mythology": "Pembawa air kehidupan",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "pisces",
+    "name": "Pisces",
+    "abbr": "Psc",
+    "name_id": "Ikan",
+    "declination": 10.0,
+    "mythology": "Dua ikan yang terikat",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "canis_major",
+    "name": "Canis Major",
+    "abbr": "CMa",
+    "name_id": "Anjing Besar",
+    "declination": -20.0,
+    "mythology": "Anjing pemburu Orion",
+    "star_ids": ["HIP32349"],
+    "lines": []
+  },
+  {
+    "id": "canis_minor",
+    "name": "Canis Minor",
+    "abbr": "CMi",
+    "name_id": "Anjing Kecil",
+    "declination": 6.0,
+    "mythology": "Anjing kecil Orion",
+    "star_ids": ["HIP27989"],
+    "lines": []
+  },
+  {
+    "id": "centaurus",
+    "name": "Centaurus",
+    "abbr": "Cen",
+    "name_id": "Centaurus",
+    "declination": -43.0,
+    "mythology": "Centaur bijaksana",
+    "star_ids": ["HIP69673", "HIP68702"],
+    "lines": [
+      {"star1": "HIP69673", "star2": "HIP68702"}
+    ]
+  },
+  {
+    "id": "hydra",
+    "name": "Hydra",
+    "abbr": "Hya",
+    "name_id": "Ular Air",
+    "declination": -12.0,
+    "mythology": "Monster ular berkepala banyak",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "ophiuchus",
+    "name": "Ophiuchus",
+    "abbr": "Oph",
+    "name_id": "Pembawa Ular",
+    "declination": -8.0,
+    "mythology": "Dewa penyembuhan",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "bootes",
+    "name": "Boötes",
+    "abbr": "Boo",
+    "name_id": "Pengembala",
+    "declination": 30.0,
+    "mythology": "Pengembala sapi",
+    "star_ids": ["HIP71683"],
+    "lines": []
+  },
+  {
+    "id": "corona_borealis",
+    "name": "Corona Borealis",
+    "abbr": "CrB",
+    "name_id": "Mahkota Utara",
+    "declination": 33.0,
+    "mythology": "Mahkota Ariadne",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "delphinus",
+    "name": "Delphinus",
+    "abbr": "Del",
+    "name_id": "Lumba-lumba",
+    "declination": 12.0,
+    "mythology": "Lumba-lumba penyelamat",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "hercules",
+    "name": "Hercules",
+    "abbr": "Her",
+    "name_id": "Herkules",
+    "declination": 27.0,
+    "mythology": "Pahlawan terkuat",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "lepus",
+    "name": "Lepus",
+    "abbr": "Lep",
+    "name_id": "Kelinci",
+    "declination": -19.0,
+    "mythology": "Kelinci yang diburu Orion",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "auriga",
+    "name": "Auriga",
+    "abbr": "Aur",
+    "name_id": "Kusir Kereta",
+    "declination": 42.0,
+    "mythology": "Kusir kereta",
+    "star_ids": ["HIP24608"],
+    "lines": []
+  },
+  {
+    "id": "carina",
+    "name": "Carina",
+    "abbr": "Car",
+    "name_id": "Lunas Kapal",
+    "declination": -64.0,
+    "mythology": "Bagian kapal Argo",
+    "star_ids": ["HIP30438"],
+    "lines": []
+  },
+  {
+    "id": "vela",
+    "name": "Vela",
+    "abbr": "Vel",
+    "name_id": "Layar",
+    "declination": -47.0,
+    "mythology": "Layar kapal Argo",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "puppis",
+    "name": "Puppis",
+    "abbr": "Pup",
+    "name_id": "Buritan",
+    "declination": -37.0,
+    "mythology": "Buritan kapal Argo",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "phoenix",
+    "name": "Phoenix",
+    "abbr": "Phe",
+    "name_id": "Burung Phoenix",
+    "declination": -48.0,
+    "mythology": "Burung yang bangkit dari abu",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "grus",
+    "name": "Grus",
+    "abbr": "Gru",
+    "name_id": "Bangau",
+    "declination": -47.0,
+    "mythology": "Bangau",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "tucana",
+    "name": "Tucana",
+    "abbr": "Tuc",
+    "name_id": "Tukan",
+    "declination": -65.0,
+    "mythology": "Burung tukan",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "draco",
+    "name": "Draco",
+    "abbr": "Dra",
+    "name_id": "Naga",
+    "declination": 65.0,
+    "mythology": "Naga yang menjaga taman Hesperides",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "lynx",
+    "name": "Lynx",
+    "abbr": "Lyn",
+    "name_id": "Lynx",
+    "declination": 47.0,
+    "mythology": "Kucing liar lynx",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "columba",
+    "name": "Columba",
+    "abbr": "Col",
+    "name_id": "Merpati",
+    "declination": -35.0,
+    "mythology": "Merpati perdamaian",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "pictor",
+    "name": "Pictor",
+    "abbr": "Pic",
+    "name_id": "Pelukis",
+    "declination": -53.0,
+    "mythology": "Kuda-kuda pelukis",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "fornax",
+    "name": "Fornax",
+    "abbr": "For",
+    "name_id": "Tungku",
+    "declination": -32.0,
+    "mythology": "Tungku kimia",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "sculptor",
+    "name": "Sculptor",
+    "abbr": "Scl",
+    "name_id": "Pemahat",
+    "declination": -32.0,
+    "mythology": "Alat pemahat",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "sextans",
+    "name": "Sextans",
+    "abbr": "Sex",
+    "name_id": "Sekstan",
+    "declination": -2.0,
+    "mythology": "Alat navigasi sekstan",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "monoceros",
+    "name": "Monoceros",
+    "abbr": "Mon",
+    "name_id": "Unicorn",
+    "declination": -2.0,
+    "mythology": "Kuda bertanduk satu",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "musca",
+    "name": "Musca",
+    "abbr": "Mus",
+    "name_id": "Lalat",
+    "declination": -69.0,
+    "mythology": "Lalat selatan",
+    "star_ids": [],
+    "lines": []
+  },
+  {
+    "id": "volans",
+    "name": "Volans",
+    "abbr": "Vol",
+    "name_id": "Ikan Terbang",
+    "declination": -70.0,
+    "mythology": "Ikan yang bisa terbang",
+    "star_ids": [],
+    "lines": []
+  }
+]

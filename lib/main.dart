@@ -1,24 +1,43 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
+import 'package:provider/provider.dart' as provider;
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:intl/date_symbol_data_local.dart';
+
+// Providers & Services
 import 'providers/weather_provider.dart';
+import 'providers/earthquake_providers.dart';
+import 'services/notification_service.dart';
+
+// Screens
 import 'screens/home_screen.dart';
-import 'widgets/main_navigation.dart';
+import 'screens/sky_screen_enchanced.dart';
+import 'screens/hydration_screen.dart';
+import 'screens/air_screen.dart';
+import 'earthquake_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Initialize Indonesian locale for date formatting
   await initializeDateFormatting('id_ID', null);
+  await NotificationService().initialize();
 
-  // Set preferred orientations
+  final sharedPreferences = await SharedPreferences.getInstance();
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(const SmartEarthApp());
+  runApp(
+    ProviderScope(
+      overrides: [
+        sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+      ],
+      child: const SmartEarthApp(),
+    ),
+  );
 }
 
 class SmartEarthApp extends StatelessWidget {
@@ -26,38 +45,18 @@ class SmartEarthApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
+    return provider.ChangeNotifierProvider(
       create: (_) => WeatherProvider(),
       child: MaterialApp(
-        title: 'Smart Earth',
         debugShowCheckedModeBanner: false,
+        title: 'Tenkiro',
+        themeMode: ThemeMode.light,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
             seedColor: const Color(0xFF395886),
             brightness: Brightness.light,
           ),
           useMaterial3: true,
-          fontFamily: 'System',
-          // GLOBAL TEXT THEME - SEMUA TEKS HITAM
-          textTheme: const TextTheme(
-            displayLarge: TextStyle(color: Colors.black),
-            displayMedium: TextStyle(color: Colors.black),
-            displaySmall: TextStyle(color: Colors.black),
-            headlineLarge: TextStyle(color: Colors.black),
-            headlineMedium: TextStyle(color: Colors.black),
-            headlineSmall: TextStyle(color: Colors.black),
-            titleLarge: TextStyle(color: Colors.black),
-            titleMedium: TextStyle(color: Colors.black),
-            titleSmall: TextStyle(color: Colors.black),
-            bodyLarge: TextStyle(color: Colors.black),
-            bodyMedium: TextStyle(color: Colors.black),
-            bodySmall: TextStyle(color: Colors.black),
-            labelLarge: TextStyle(color: Colors.black),
-            labelMedium: TextStyle(color: Colors.black),
-            labelSmall: TextStyle(color: Colors.black),
-          ),
-          // Icon theme
-          iconTheme: const IconThemeData(color: Colors.black),
         ),
         darkTheme: ThemeData(
           colorScheme: ColorScheme.fromSeed(
@@ -65,36 +64,84 @@ class SmartEarthApp extends StatelessWidget {
             brightness: Brightness.dark,
           ),
           useMaterial3: true,
-          fontFamily: 'System',
-          // Dark theme juga konsisten
-          textTheme: const TextTheme(
-            displayLarge: TextStyle(color: Colors.black),
-            displayMedium: TextStyle(color: Colors.black),
-            displaySmall: TextStyle(color: Colors.black),
-            headlineLarge: TextStyle(color: Colors.black),
-            headlineMedium: TextStyle(color: Colors.black),
-            headlineSmall: TextStyle(color: Colors.black),
-            titleLarge: TextStyle(color: Colors.black),
-            titleMedium: TextStyle(color: Colors.black),
-            titleSmall: TextStyle(color: Colors.black),
-            bodyLarge: TextStyle(color: Colors.black),
-            bodyMedium: TextStyle(color: Colors.black),
-            bodySmall: TextStyle(color: Colors.black),
-            labelLarge: TextStyle(color: Colors.black),
-            labelMedium: TextStyle(color: Colors.black),
-            labelSmall: TextStyle(color: Colors.black),
-          ),
-          iconTheme: const IconThemeData(color: Colors.black),
         ),
-        themeMode: ThemeMode.light, // Force light mode dengan text hitam
         home: const MainNavigation(),
       ),
     );
   }
 }
 
-/*
- * © 2026 Haruxa. All rights reserved.
- * Author: Haruxa
- * Description: File ini bagian dari proyek aplikasi cuaca & astronomi.
- */
+class MainNavigation extends StatefulWidget {
+  const MainNavigation({super.key});
+
+  @override
+  State<MainNavigation> createState() => _MainNavigationState();
+}
+
+class _MainNavigationState extends State<MainNavigation> {
+  int _currentIndex = 0;
+
+  final List<Widget> _screens = const [
+    HomeScreen(),
+    SkyScreenEnhanced(),
+    HydrationPage(),
+    AirScreen(),
+    EarthquakePage(),
+  ];
+
+  void _onTabTapped(int index) {
+    if (index == _currentIndex) return;
+
+    HapticFeedback.selectionClick();
+
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 300),
+        switchInCurve: Curves.easeOut,
+        switchOutCurve: Curves.easeIn,
+        child: _screens[_currentIndex],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _currentIndex,
+        onTap: _onTabTapped,
+        type: BottomNavigationBarType.fixed,
+        selectedItemColor: const Color(0xFF395886),
+        unselectedItemColor: Colors.black54,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.wb_sunny_outlined),
+            activeIcon: Icon(Icons.wb_sunny),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.nights_stay_outlined),
+            activeIcon: Icon(Icons.nights_stay),
+            label: 'Sky',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.water_drop_outlined),
+            activeIcon: Icon(Icons.water_drop),
+            label: 'Water',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.air_outlined),
+            activeIcon: Icon(Icons.air),
+            label: 'Air',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.public_outlined),
+            activeIcon: Icon(Icons.public),
+            label: 'Gempa',
+          ),
+        ],
+      ),
+    );
+  }
+}

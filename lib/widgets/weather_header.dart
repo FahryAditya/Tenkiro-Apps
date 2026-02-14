@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:intl/intl.dart';
@@ -17,6 +18,8 @@ class _WeatherHeaderState extends State<WeatherHeader>
   late AnimationController _animationController;
   late Animation<double> _fadeAnimation;
   late Animation<double> _scaleAnimation;
+  Timer? _timer;
+  DateTime _currentTime = DateTime.now();
 
   @override
   void initState() {
@@ -35,10 +38,19 @@ class _WeatherHeaderState extends State<WeatherHeader>
     );
 
     _animationController.forward();
+
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (mounted) {
+        setState(() {
+          _currentTime = DateTime.now();
+        });
+      }
+    });
   }
 
   @override
   void dispose() {
+    _timer?.cancel();
     _animationController.dispose();
     super.dispose();
   }
@@ -137,7 +149,8 @@ class _WeatherHeaderState extends State<WeatherHeader>
                       borderRadius: BorderRadius.circular(20),
                     ),
                     child: Text(
-                      DateFormat('EEEE, d MMMM', 'id_ID').format(currentTime),
+                      DateFormat('EEEE, d MMMM HH:mm:ss', 'id_ID')
+                          .format(_currentTime),
                       style: TextStyle(
                         fontSize: 13,
                         color: secondaryColor,
@@ -150,13 +163,13 @@ class _WeatherHeaderState extends State<WeatherHeader>
                   ),
                 ),
 
-                const SizedBox(height: 40),
+                const SizedBox(height: 30),
 
                 // Weather icon with animation
                 LayoutBuilder(
                   builder: (context, constraints) {
-                    final iconSize = constraints.maxWidth > 400 ? 80.0 : 60.0;
-                    final padding = constraints.maxWidth > 400 ? 20.0 : 15.0;
+                    final iconSize = constraints.maxWidth > 400 ? 70.0 : 50.0;
+                    final padding = constraints.maxWidth > 400 ? 18.0 : 12.0;
 
                     return TweenAnimationBuilder<double>(
                       tween: Tween(begin: 0.0, end: 1.0),
@@ -180,7 +193,7 @@ class _WeatherHeaderState extends State<WeatherHeader>
                                   BoxShadow(
                                     color:
                                         ColorUtils.getShadowColor(currentTime),
-                                    blurRadius: 20,
+                                    blurRadius: 16,
                                     spreadRadius: 2,
                                   ),
                                 ],
@@ -201,12 +214,12 @@ class _WeatherHeaderState extends State<WeatherHeader>
                   },
                 ),
 
-                const SizedBox(height: 24),
+                const SizedBox(height: 16),
 
                 // Current temperature - Enhanced (OVERRIDE: Boleh warna accent)
                 LayoutBuilder(
                   builder: (context, constraints) {
-                    final tempSize = constraints.maxWidth > 400 ? 90.0 : 70.0;
+                    final tempSize = constraints.maxWidth > 400 ? 80.0 : 60.0;
                     // TEMPERATURE UTAMA: Boleh pakai warna accent (biru)
                     final tempColor = ColorUtils.getPrimaryColor(currentTime);
 
@@ -226,7 +239,7 @@ class _WeatherHeaderState extends State<WeatherHeader>
                           shadows: [
                             Shadow(
                               color: ColorUtils.getShadowColor(currentTime),
-                              blurRadius: 10,
+                              blurRadius: 8,
                             ),
                           ],
                         ),
@@ -235,15 +248,15 @@ class _WeatherHeaderState extends State<WeatherHeader>
                   },
                 ),
 
-                const SizedBox(height: 8),
+                const SizedBox(height: 6),
 
                 // Weather description - Enhanced
                 Container(
                   padding:
-                      const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
                   decoration: BoxDecoration(
                     color: textColor.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(16),
                     border: Border.all(
                       color: ColorUtils.getCardBorderColor(currentTime),
                       width: 1,
@@ -253,7 +266,7 @@ class _WeatherHeaderState extends State<WeatherHeader>
                     WeatherUtils.getWeatherDescription(
                         weather.current.weatherCode),
                     style: TextStyle(
-                      fontSize: 22,
+                      fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: textColor,
                       letterSpacing: 0.5,
@@ -261,15 +274,15 @@ class _WeatherHeaderState extends State<WeatherHeader>
                   ),
                 ),
 
-                const SizedBox(height: 24),
+                const SizedBox(height: 20),
 
                 // Min/Max temperature - Enhanced with better layout
                 Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 40),
-                  padding: const EdgeInsets.all(16),
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(
                     color: ColorUtils.getCardColor(currentTime),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(16),
                     border: Border.all(
                       color: ColorUtils.getCardBorderColor(currentTime),
                       width: 1,
@@ -277,7 +290,7 @@ class _WeatherHeaderState extends State<WeatherHeader>
                     boxShadow: [
                       BoxShadow(
                         color: ColorUtils.getShadowColor(currentTime),
-                        blurRadius: 10,
+                        blurRadius: 8,
                         offset: const Offset(0, 4),
                       ),
                     ],
@@ -293,7 +306,7 @@ class _WeatherHeaderState extends State<WeatherHeader>
                         secondaryColor,
                       ),
                       Container(
-                        height: 40,
+                        height: 35,
                         width: 1,
                         color: ColorUtils.getCardBorderColor(currentTime),
                       ),
@@ -305,7 +318,7 @@ class _WeatherHeaderState extends State<WeatherHeader>
                         secondaryColor,
                       ),
                       Container(
-                        height: 40,
+                        height: 35,
                         width: 1,
                         color: ColorUtils.getCardBorderColor(currentTime),
                       ),
@@ -320,7 +333,7 @@ class _WeatherHeaderState extends State<WeatherHeader>
                   ),
                 ),
 
-                const SizedBox(height: 40),
+                const SizedBox(height: 30),
               ],
             ),
           ),

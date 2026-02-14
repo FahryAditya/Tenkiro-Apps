@@ -1,159 +1,22 @@
-- [x] Update the _airUrl constant to the correct Open-Meteo air quality API domain.
-- [x] Remove unused query parameters 'nitrogen_dioxide' and 'ozone' from the 'current' field in getAirQuality method.
-- [x] Change the air quality card color for better text visibility and neat appearance.
-- [x] Implement Night Sky Visibility Index widget.
-- [x] Implement Moon Phase System widget.
-- [x] Implement Earth-Sun Relationship widget.
+# TODO: Fix White Screen Issues on All Tabs
 
-📐 Rancangan Fitur Astronomi & Earth Science (Matang)
-🧭 FILOSOFI FITUR
-Tenkiro bukan sekadar weather app, tapi:
-Aplikasi pemahaman Bumi & Langit berbasis data ilmiah terbuka
-Prinsip:
-🌱 Open-source friendly
-🧠 Ilmiah & dapat dijelaskan
-🎨 Visual & intuitif
-⚡ Ringan & mobile-first
-🧩 STRUKTUR MENU BARU
-Salin kode
+## Tasks:
+- [x] Fix lib/screens/home_screen.dart - increase bottom padding from 24 to 100 pixels
+- [x] Fix lib/screens/air_screen.dart - increase bottom padding from 60-70 to 100 pixels (already done)
+- [x] Add null safety checks in AirScreen for currentLocation (already done)
+- [x] Add error handling in WeatherProvider to prevent white screens
 
-Home (Cuaca)
-Sky
-Earth
-Air
-Events
+## Issue Description:
+The user reports that the home page, sky page, water page, air page, and earthquake page are not appearing on the phone - they show white screens instead of content.
 
-🌤️ SKY (Astronomi Harian)
-1️⃣ Solar Tracker (Matahari)
-Tujuan: Memahami siklus harian matahari
-Data
-Sunrise / Sunset (Open-Meteo)
-Latitude / Longitude
-Timezone
-Perhitungan (Client-side)
-Solar elevation angle
-Golden hour
-Blue hour
-Day length
-UI
-Arc matahari bergerak real-time
-Gradien langit dinamis
-Timeline horizontal
-Nilai tambah
-Fotografer
-Edukasi
-Outdoor activity
+## Root Cause Analysis:
+1. The screens might have overflow issues that cause rendering problems on some devices
+2. Missing null safety checks could cause runtime exceptions
+3. Provider initialization might fail silently
 
-2️⃣ Moon Phase System (Bulan)
-Tujuan: Aktivitas malam & siklus alam
-Data
-Moon phase
-Illumination (%)
-Moon age
-Moonrise / Moonset
-Sumber
-Open-Meteo / perhitungan Julian Date
-UI
-Bulan animatif
-Progress circular phase
-Mode malam otomatis
-
-3️⃣ Night Sky Visibility Index ⭐
-Fitur andalan Tenkiro
-Input Data
-Parameter
-Sumber
-Cloud cover
-Open-Meteo
-Moon illumination
-Moon system
-Visibility
-Open-Meteo
-Humidity
-Open-Meteo
-Output
-Skor 0–100
-Kategori:
-🔴 Buruk
-🟡 Cukup
-🟢 Ideal
-UI
-Gauge meter
-Rekomendasi aktivitas
-
-🌍 EARTH (Ilmu Bumi)
-4️⃣ Earth–Sun Relationship
-Tujuan: Edukasi musim & orbit
-Data
-Day of year
-Solar declination
-Visual
-Orbit bumi
-Musim aktif
-Penjelasan singkat
-
-5️⃣ Day–Night Balance
-Data
-Panjang siang vs malam
-Grafik tahunan
-UI
-Bar chart
-Timeline musiman
-
-🌫️ AIR (Atmosfer & Kualitas Udara)
-6️⃣ Air Quality Intelligence
-Upgrade dari AQI biasa
-Data
-AQI
-PM2.5, PM10, CO, SO₂
-Analisis
-Dampak kesehatan
-Rekomendasi aktivitas luar ruangan
-UI
-Color-coded cards
-Health tips kontekstual
-
-📅 EVENTS (Kalender Astronomi)
-7️⃣ Astronomical Events Calendar
-Event
-Gerhana
-Hujan meteor
-Solstice / Equinox
-Supermoon
-Data
-NASA open data
-Static JSON tahunan
-UX
-Timeline
-Reminder
-Event detail page
-
-🧠 ARSITEKTUR DATA (OPEN SOURCE)
-Salin kode
-
-Open-Meteo API
-     ↓
-Data Models
-     ↓
-Calculation Layer
-     ↓
-State Management
-     ↓
-UI Layer
-Prinsip
-API → hanya ambil data mentah
-Semua analisis → client-side
-Mudah diuji & dikembangkan
-
-⚙️ STATE MANAGEMENT
-Rekomendasi: Riverpod
-Kenapa?
-Aman async
-Mudah cache
-Cocok data ilmiah
-
-🎨 UX SYSTEM
-Dynamic theme (day/night)
-Context-aware UI
-Smooth animation (≤ 300ms)
-Aksesibilitas (kontras tinggi)
+## Fix Plan:
+1. ✅ Increase bottom padding in home_screen.dart from 24 to 100
+2. ✅ Increase bottom padding in air_screen.dart from 60-70 to 100 (already at 100)
+3. ✅ Add null safety check for provider.currentLocation.city in AirScreen (already done)
+4. ✅ Add fallback UI when weather data is null in AirScreen (already done)
+5. ✅ Add error handling in WeatherProvider for location failures

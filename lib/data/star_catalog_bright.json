@@ -1,0 +1,977 @@
+[
+  {
+    "id": "HIP32349",
+    "name": "Sirius",
+    "ra": 101.28715,
+    "dec": -16.71611,
+    "mag": -1.46,
+    "spectral_type": "A1V",
+    "constellation": "CMa"
+  },
+  {
+    "id": "HIP30438",
+    "name": "Canopus",
+    "ra": 95.98795,
+    "dec": -52.69566,
+    "mag": -0.74,
+    "spectral_type": "A9II",
+    "constellation": "Car"
+  },
+  {
+    "id": "HIP71683",
+    "name": "Arcturus",
+    "ra": 213.91530,
+    "dec": 19.18241,
+    "mag": -0.05,
+    "spectral_type": "K1.5III",
+    "constellation": "Boo"
+  },
+  {
+    "id": "HIP69673",
+    "name": "Rigel Kentaurus",
+    "ra": 219.90205,
+    "dec": -60.83399,
+    "mag": -0.01,
+    "spectral_type": "G2V",
+    "constellation": "Cen"
+  },
+  {
+    "id": "HIP91262",
+    "name": "Vega",
+    "ra": 279.23473,
+    "dec": 38.78369,
+    "mag": 0.03,
+    "spectral_type": "A0Va",
+    "constellation": "Lyr"
+  },
+  {
+    "id": "HIP24608",
+    "name": "Capella",
+    "ra": 79.17232,
+    "dec": 45.99799,
+    "mag": 0.08,
+    "spectral_type": "G5IIIe",
+    "constellation": "Aur"
+  },
+  {
+    "id": "HIP24436",
+    "name": "Rigel",
+    "ra": 78.63446,
+    "dec": -8.20164,
+    "mag": 0.13,
+    "spectral_type": "B8Ia",
+    "constellation": "Ori"
+  },
+  {
+    "id": "HIP27989",
+    "name": "Procyon",
+    "ra": 114.82576,
+    "dec": 5.22499,
+    "mag": 0.38,
+    "spectral_type": "F5IV-V",
+    "constellation": "CMi"
+  },
+  {
+    "id": "HIP21421",
+    "name": "Achernar",
+    "ra": 24.42852,
+    "dec": -57.23668,
+    "mag": 0.46,
+    "spectral_type": "B3Vpe",
+    "constellation": "Eri"
+  },
+  {
+    "id": "HIP29038",
+    "name": "Betelgeuse",
+    "ra": 88.79293,
+    "dec": 7.40704,
+    "mag": 0.50,
+    "spectral_type": "M1-2Ia-Iab",
+    "constellation": "Ori"
+  },
+  {
+    "id": "HIP80763",
+    "name": "Altair",
+    "ra": 297.69582,
+    "dec": 8.86832,
+    "mag": 0.77,
+    "spectral_type": "A7V",
+    "constellation": "Aql"
+  },
+  {
+    "id": "HIP25336",
+    "name": "Aldebaran",
+    "ra": 68.98016,
+    "dec": 16.50930,
+    "mag": 0.85,
+    "spectral_type": "K5+III",
+    "constellation": "Tau"
+  },
+  {
+    "id": "HIP37279",
+    "name": "Spica",
+    "ra": 201.29825,
+    "dec": -11.16132,
+    "mag": 1.04,
+    "spectral_type": "B1III-IV",
+    "constellation": "Vir"
+  },
+  {
+    "id": "HIP11767",
+    "name": "Polaris",
+    "ra": 37.95456,
+    "dec": 89.26411,
+    "mag": 1.98,
+    "spectral_type": "F7Ib",
+    "constellation": "UMi"
+  },
+  {
+    "id": "HIP49669",
+    "name": "Regulus",
+    "ra": 152.09298,
+    "dec": 11.96721,
+    "mag": 1.35,
+    "spectral_type": "B7V",
+    "constellation": "Leo"
+  },
+  {
+    "id": "HIP62434",
+    "name": "Acrux",
+    "ra": 186.64963,
+    "dec": -63.09909,
+    "mag": 0.77,
+    "spectral_type": "B0.5IV",
+    "constellation": "Cru"
+  },
+  {
+    "id": "HIP68702",
+    "name": "Hadar",
+    "ra": 210.95592,
+    "dec": -60.37303,
+    "mag": 0.61,
+    "spectral_type": "B1III",
+    "constellation": "Cen"
+  },
+  {
+    "id": "HIP97649",
+    "name": "Deneb",
+    "ra": 310.35798,
+    "dec": 45.28034,
+    "mag": 1.25,
+    "spectral_type": "A2Ia",
+    "constellation": "Cyg"
+  },
+  {
+    "id": "HIP54061",
+    "name": "Mimosa",
+    "ra": 191.93026,
+    "dec": -59.68877,
+    "mag": 1.25,
+    "spectral_type": "B0.5III",
+    "constellation": "Cru"
+  },
+  {
+    "id": "HIP113368",
+    "name": "Fomalhaut",
+    "ra": 344.41269,
+    "dec": -29.62223,
+    "mag": 1.16,
+    "spectral_type": "A3V",
+    "constellation": "PsA"
+  },
+
+  {
+    "id": "HIP677",
+    "name": "Alpheratz",
+    "ra": 2.097,
+    "dec": 29.091,
+    "mag": 2.06,
+    "spectral_type": "B8IV",
+    "constellation": "And"
+  },
+  {
+    "id": "HIP51172",
+    "name": "Alpha Antliae",
+    "ra": 156.195,
+    "dec": -31.068,
+    "mag": 4.25,
+    "spectral_type": "K4III",
+    "constellation": "Ant"
+  },
+  {
+    "id": "HIP72370",
+    "name": "Alpha Apodis",
+    "ra": 222.146,
+    "dec": -79.045,
+    "mag": 3.83,
+    "spectral_type": "K5III",
+    "constellation": "Aps"
+  },
+  {
+    "id": "HIP109074",
+    "name": "Sadalmelik",
+    "ra": 331.446,
+    "dec": -0.320,
+    "mag": 2.96,
+    "spectral_type": "G2Ib",
+    "constellation": "Aqr"
+  },
+  {
+    "id": "HIP97649",
+    "name": "Altair",
+    "ra": 297.696,
+    "dec": 8.868,
+    "mag": 0.77,
+    "spectral_type": "A7V",
+    "constellation": "Aql"
+  },
+  {
+    "id": "HIP85258",
+    "name": "Beta Arae",
+    "ra": 261.350,
+    "dec": -55.530,
+    "mag": 2.85,
+    "spectral_type": "K3Ib-II",
+    "constellation": "Ara"
+  },
+  {
+    "id": "HIP9884",
+    "name": "Hamal",
+    "ra": 31.793,
+    "dec": 23.462,
+    "mag": 2.00,
+    "spectral_type": "K2III",
+    "constellation": "Ari"
+  },
+  {
+    "id": "HIP24608",
+    "name": "Capella",
+    "ra": 79.172,
+    "dec": 45.998,
+    "mag": 0.08,
+    "spectral_type": "G5III",
+    "constellation": "Aur"
+  },
+  {
+    "id": "HIP71683",
+    "name": "Arcturus",
+    "ra": 213.915,
+    "dec": 19.182,
+    "mag": -0.05,
+    "spectral_type": "K1.5III",
+    "constellation": "Boo"
+  },
+  {
+    "id": "HIP21060",
+    "name": "Alpha Caeli",
+    "ra": 67.578,
+    "dec": -41.864,
+    "mag": 4.45,
+    "spectral_type": "F2V",
+    "constellation": "Cae"
+  },
+  {
+    "id": "HIP29997",
+    "name": "Beta Camelopardalis",
+    "ra": 94.893,
+    "dec": 60.442,
+    "mag": 4.03,
+    "spectral_type": "G1Ib",
+    "constellation": "Cam"
+  },
+  {
+    "id": "HIP42911",
+    "name": "Altarf",
+    "ra": 131.171,
+    "dec": 9.186,
+    "mag": 3.53,
+    "spectral_type": "K4III",
+    "constellation": "Cnc"
+  },
+  {
+    "id": "HIP63125",
+    "name": "Cor Caroli",
+    "ra": 194.007,
+    "dec": 38.319,
+    "mag": 2.90,
+    "spectral_type": "A0p",
+    "constellation": "CVn"
+  },
+  {
+    "id": "HIP32349",
+    "name": "Sirius",
+    "ra": 101.287,
+    "dec": -16.716,
+    "mag": -1.46,
+    "spectral_type": "A1V",
+    "constellation": "CMa"
+  },
+  {
+    "id": "HIP37279",
+    "name": "Procyon",
+    "ra": 114.825,
+    "dec": 5.225,
+    "mag": 0.38,
+    "spectral_type": "F5IV-V",
+    "constellation": "CMi"
+  },
+  {
+    "id": "HIP100345",
+    "name": "Deneb Algedi",
+    "ra": 305.253,
+    "dec": -16.127,
+    "mag": 2.87,
+    "spectral_type": "A5m",
+    "constellation": "Cap"
+  },
+  {
+    "id": "HIP30438",
+    "name": "Canopus",
+    "ra": 95.988,
+    "dec": -52.696,
+    "mag": -0.74,
+    "spectral_type": "A9II",
+    "constellation": "Car"
+  },
+  {
+    "id": "HIP3179",
+    "name": "Schedar",
+    "ra": 10.127,
+    "dec": 56.537,
+    "mag": 2.23,
+    "spectral_type": "K0III",
+    "constellation": "Cas"
+  },
+  {
+    "id": "HIP69673",
+    "name": "Alpha Centauri",
+    "ra": 219.902,
+    "dec": -60.834,
+    "mag": -0.01,
+    "spectral_type": "G2V",
+    "constellation": "Cen"
+  },
+  {
+    "id": "HIP105199",
+    "name": "Alderamin",
+    "ra": 319.644,
+    "dec": 62.585,
+    "mag": 2.44,
+    "spectral_type": "A7IV-V",
+    "constellation": "Cep"
+  },
+  {
+    "id": "HIP11407",
+    "name": "Menkar",
+    "ra": 36.669,
+    "dec": 4.090,
+    "mag": 2.53,
+    "spectral_type": "M2III",
+    "constellation": "Cet"
+  },
+  {
+    "id": "HIP40702",
+    "name": "Alpha Chamaeleontis",
+    "ra": 124.790,
+    "dec": -76.920,
+    "mag": 4.07,
+    "spectral_type": "F5V",
+    "constellation": "Cha"
+  },
+  {
+    "id": "HIP71908",
+    "name": "Alpha Circini",
+    "ra": 220.628,
+    "dec": -64.975,
+    "mag": 3.19,
+    "spectral_type": "F0V",
+    "constellation": "Cir"
+  },
+  {
+    "id": "HIP26634",
+    "name": "Phact",
+    "ra": 84.912,
+    "dec": -34.074,
+    "mag": 2.64,
+    "spectral_type": "B7IV",
+    "constellation": "Col"
+  },
+  {
+    "id": "HIP64394",
+    "name": "Beta Comae",
+    "ra": 198.009,
+    "dec": 27.878,
+    "mag": 4.26,
+    "spectral_type": "G0V",
+    "constellation": "Com"
+  },
+  {
+    "id": "HIP95168",
+    "name": "Alfecca Meridiana",
+    "ra": 290.433,
+    "dec": -37.104,
+    "mag": 4.11,
+    "spectral_type": "A0V",
+    "constellation": "CrA"
+  },
+  {
+    "id": "HIP76267",
+    "name": "Alphecca",
+    "ra": 233.671,
+    "dec": 26.715,
+    "mag": 2.23,
+    "spectral_type": "A0V",
+    "constellation": "CrB"
+  },
+  {
+    "id": "HIP59803",
+    "name": "Gienah",
+    "ra": 183.952,
+    "dec": -17.542,
+    "mag": 2.59,
+    "spectral_type": "B8III",
+    "constellation": "Crv"
+  },
+  {
+    "id": "HIP55705",
+    "name": "Delta Crateris",
+    "ra": 171.282,
+    "dec": -14.779,
+    "mag": 3.56,
+    "spectral_type": "K0III",
+    "constellation": "Crt"
+  },
+  {
+    "id": "HIP60718",
+    "name": "Acrux",
+    "ra": 186.650,
+    "dec": -63.099,
+    "mag": 0.77,
+    "spectral_type": "B0.5IV",
+    "constellation": "Cru"
+  },
+  {
+    "id": "HIP102098",
+    "name": "Deneb",
+    "ra": 310.358,
+    "dec": 45.280,
+    "mag": 1.25,
+    "spectral_type": "A2Ia",
+    "constellation": "Cyg"
+  },
+  {
+    "id": "HIP101958",
+    "name": "Rotanev",
+    "ra": 309.909,
+    "dec": 14.595,
+    "mag": 3.63,
+    "spectral_type": "F5IV",
+    "constellation": "Del"
+  },
+  {
+    "id": "HIP21281",
+    "name": "Alpha Doradus",
+    "ra": 68.603,
+    "dec": -55.045,
+    "mag": 3.27,
+    "spectral_type": "A0III",
+    "constellation": "Dor"
+  },
+  {
+    "id": "HIP68756",
+    "name": "Thuban",
+    "ra": 211.097,
+    "dec": 64.376,
+    "mag": 3.65,
+    "spectral_type": "A0III",
+    "constellation": "Dra"
+  },
+  {
+    "id": "HIP104521",
+    "name": "Kitalpha",
+    "ra": 317.844,
+    "dec": 5.248,
+    "mag": 3.92,
+    "spectral_type": "G0III",
+    "constellation": "Equ"
+  },
+  {
+    "id": "HIP7588",
+    "name": "Achernar",
+    "ra": 24.429,
+    "dec": -57.237,
+    "mag": 0.46,
+    "spectral_type": "B3Vpe",
+    "constellation": "Eri"
+  },
+  {
+    "id": "HIP13147",
+    "name": "Alpha Fornacis",
+    "ra": 42.293,
+    "dec": -28.988,
+    "mag": 3.87,
+    "spectral_type": "F8V",
+    "constellation": "For"
+  },
+  {
+    "id": "HIP37826",
+    "name": "Pollux",
+    "ra": 116.329,
+    "dec": 28.026,
+    "mag": 1.14,
+    "spectral_type": "K0III",
+    "constellation": "Gem"
+  },
+  {
+    "id": "HIP109268",
+    "name": "Alnair",
+    "ra": 332.058,
+    "dec": -46.961,
+    "mag": 1.74,
+    "spectral_type": "B7IV",
+    "constellation": "Gru"
+  },
+  {
+    "id": "HIP84345",
+    "name": "Rasalgethi",
+    "ra": 258.662,
+    "dec": 14.390,
+    "mag": 3.48,
+    "spectral_type": "M5Ib-II",
+    "constellation": "Her"
+  },
+  {
+    "id": "HIP12484",
+    "name": "Alpha Horologii",
+    "ra": 40.267,
+    "dec": -42.294,
+    "mag": 3.86,
+    "spectral_type": "K2III",
+    "constellation": "Hor"
+  },
+  {
+    "id": "HIP46390",
+    "name": "Alphard",
+    "ra": 141.897,
+    "dec": -8.659,
+    "mag": 1.98,
+    "spectral_type": "K3II-III",
+    "constellation": "Hya"
+  },
+  {
+    "id": "HIP2021",
+    "name": "Beta Hydri",
+    "ra": 6.525,
+    "dec": -77.254,
+    "mag": 2.80,
+    "spectral_type": "G2IV",
+    "constellation": "Hyi"
+  },
+  {
+    "id": "HIP108431",
+    "name": "Alpha Indi",
+    "ra": 329.568,
+    "dec": -47.291,
+    "mag": 3.11,
+    "spectral_type": "K0III-IV",
+    "constellation": "Ind"
+  },
+  {
+    "id": "HIP109176",
+    "name": "Alpha Lacertae",
+    "ra": 331.753,
+    "dec": 50.283,
+    "mag": 3.77,
+    "spectral_type": "A1V",
+    "constellation": "Lac"
+  },
+  {
+    "id": "HIP49669",
+    "name": "Regulus",
+    "ra": 152.093,
+    "dec": 11.967,
+    "mag": 1.35,
+    "spectral_type": "B7V",
+    "constellation": "Leo"
+  },
+  {
+    "id": "HIP53229",
+    "name": "Praecipua",
+    "ra": 163.327,
+    "dec": 34.215,
+    "mag": 3.83,
+    "spectral_type": "G8III-IV",
+    "constellation": "LMi"
+  },
+  {
+    "id": "HIP25985",
+    "name": "Arneb",
+    "ra": 83.006,
+    "dec": -17.822,
+    "mag": 2.58,
+    "spectral_type": "F0Ib",
+    "constellation": "Lep"
+  },
+  {
+    "id": "HIP74785",
+    "name": "Zubenelgenubi",
+    "ra": 229.251,
+    "dec": -16.042,
+    "mag": 2.75,
+    "spectral_type": "A3IV",
+    "constellation": "Lib"
+  },
+  {
+    "id": "HIP71860",
+    "name": "Alpha Lupi",
+    "ra": 220.482,
+    "dec": -47.388,
+    "mag": 2.30,
+    "spectral_type": "B1.5III",
+    "constellation": "Lup"
+  },
+  {
+    "id": "HIP45860",
+    "name": "Alpha Lyncis",
+    "ra": 140.547,
+    "dec": 34.392,
+    "mag": 3.13,
+    "spectral_type": "K7III",
+    "constellation": "Lyn"
+  },
+  {
+    "id": "HIP91262",
+    "name": "Vega",
+    "ra": 279.235,
+    "dec": 38.784,
+    "mag": 0.03,
+    "spectral_type": "A0Va",
+    "constellation": "Lyr"
+  },
+  {
+    "id": "HIP29271",
+    "name": "Alpha Mensae",
+    "ra": 92.320,
+    "dec": -74.753,
+    "mag": 5.09,
+    "spectral_type": "G5V",
+    "constellation": "Men"
+  },
+  {
+    "id": "HIP103738",
+    "name": "Gamma Microscopii",
+    "ra": 315.374,
+    "dec": -32.258,
+    "mag": 4.67,
+    "spectral_type": "G6III",
+    "constellation": "Mic"
+  },
+  {
+    "id": "HIP30867",
+    "name": "Alpha Monocerotis",
+    "ra": 97.155,
+    "dec": -9.551,
+    "mag": 3.93,
+    "spectral_type": "K0III",
+    "constellation": "Mon"
+  },
+  {
+    "id": "HIP59929",
+    "name": "Alpha Muscae",
+    "ra": 184.257,
+    "dec": -69.136,
+    "mag": 2.69,
+    "spectral_type": "B2IV-V",
+    "constellation": "Mus"
+  },
+  {
+    "id": "HIP80763",
+    "name": "Gamma Normae",
+    "ra": 247.352,
+    "dec": -50.155,
+    "mag": 4.99,
+    "spectral_type": "K0III",
+    "constellation": "Nor"
+  },
+  {
+    "id": "HIP112029",
+    "name": "Sigma Octantis",
+    "ra": 340.340,
+    "dec": -88.957,
+    "mag": 5.47,
+    "spectral_type": "F0IV",
+    "constellation": "Oct"
+  },
+  {
+    "id": "HIP86032",
+    "name": "Rasalhague",
+    "ra": 263.733,
+    "dec": 12.560,
+    "mag": 2.08,
+    "spectral_type": "A5III",
+    "constellation": "Oph"
+  },
+  {
+    "id": "HIP27989",
+    "name": "Betelgeuse",
+    "ra": 88.793,
+    "dec": 7.407,
+    "mag": 0.50,
+    "spectral_type": "M2Iab",
+    "constellation": "Ori"
+  },
+  {
+    "id": "HIP100751",
+    "name": "Peacock",
+    "ra": 306.412,
+    "dec": -56.735,
+    "mag": 1.94,
+    "spectral_type": "B2IV",
+    "constellation": "Pav"
+  },
+  {
+    "id": "HIP107315",
+    "name": "Enif",
+    "ra": 326.046,
+    "dec": 9.875,
+    "mag": 2.39,
+    "spectral_type": "K2Ib",
+    "constellation": "Peg"
+  },
+  {
+    "id": "HIP15863",
+    "name": "Mirfak",
+    "ra": 51.080,
+    "dec": 49.861,
+    "mag": 1.79,
+    "spectral_type": "F5Ib",
+    "constellation": "Per"
+  },
+  {
+    "id": "HIP2081",
+    "name": "Ankaa",
+    "ra": 6.571,
+    "dec": -42.306,
+    "mag": 2.39,
+    "spectral_type": "K0III",
+    "constellation": "Phe"
+  },
+  {
+    "id": "HIP27321",
+    "name": "Alpha Pictoris",
+    "ra": 86.821,
+    "dec": -61.942,
+    "mag": 3.27,
+    "spectral_type": "A8Vn",
+    "constellation": "Pic"
+  },
+  {
+    "id": "HIP6686",
+    "name": "Alpherg",
+    "ra": 21.471,
+    "dec": 2.764,
+    "mag": 3.82,
+    "spectral_type": "G9III",
+    "constellation": "Psc"
+  },
+  {
+    "id": "HIP113368",
+    "name": "Fomalhaut",
+    "ra": 344.413,
+    "dec": -29.622,
+    "mag": 1.16,
+    "spectral_type": "A3V",
+    "constellation": "PsA"
+  },
+  {
+    "id": "HIP39429",
+    "name": "Naos",
+    "ra": 120.896,
+    "dec": -40.003,
+    "mag": 2.25,
+    "spectral_type": "O5Ia",
+    "constellation": "Pup"
+  },
+  {
+    "id": "HIP42828",
+    "name": "Alpha Pyxidis",
+    "ra": 130.986,
+    "dec": -33.186,
+    "mag": 3.68,
+    "spectral_type": "B1.5III",
+    "constellation": "Pyx"
+  },
+  {
+    "id": "HIP19780",
+    "name": "Alpha Reticuli",
+    "ra": 63.867,
+    "dec": -62.474,
+    "mag": 3.35,
+    "spectral_type": "G8II-III",
+    "constellation": "Ret"
+  },
+  {
+    "id": "HIP96837",
+    "name": "Gamma Sagittae",
+    "ra": 295.024,
+    "dec": 19.492,
+    "mag": 3.47,
+    "spectral_type": "M0III",
+    "constellation": "Sge"
+  },
+  {
+    "id": "HIP95294",
+    "name": "Kaus Australis",
+    "ra": 290.660,
+    "dec": -34.385,
+    "mag": 1.85,
+    "spectral_type": "B9.5III",
+    "constellation": "Sgr"
+  },
+  {
+    "id": "HIP87073",
+    "name": "Antares",
+    "ra": 266.900,
+    "dec": -26.432,
+    "mag": 0.96,
+    "spectral_type": "M1.5Iab",
+    "constellation": "Sco"
+  },
+  {
+    "id": "HIP4810",
+    "name": "Alpha Sculptoris",
+    "ra": 15.353,
+    "dec": -29.357,
+    "mag": 4.31,
+    "spectral_type": "B7III",
+    "constellation": "Scl"
+  },
+  {
+    "id": "HIP93747",
+    "name": "Alpha Scuti",
+    "ra": 286.556,
+    "dec": -8.244,
+    "mag": 3.85,
+    "spectral_type": "K2III",
+    "constellation": "Sct"
+  },
+  {
+    "id": "HIP77070",
+    "name": "Unukalhai",
+    "ra": 236.067,
+    "dec": 6.426,
+    "mag": 2.65,
+    "spectral_type": "K2III",
+    "constellation": "Ser"
+  },
+  {
+    "id": "HIP50887",
+    "name": "Alpha Sextantis",
+    "ra": 155.826,
+    "dec": -0.372,
+    "mag": 4.49,
+    "spectral_type": "A0III",
+    "constellation": "Sex"
+  },
+  {
+    "id": "HIP21421",
+    "name": "Aldebaran",
+    "ra": 68.980,
+    "dec": 16.509,
+    "mag": 0.85,
+    "spectral_type": "K5III",
+    "constellation": "Tau"
+  },
+  {
+    "id": "HIP90568",
+    "name": "Alpha Telescopii",
+    "ra": 277.107,
+    "dec": -45.969,
+    "mag": 3.51,
+    "spectral_type": "B3IV",
+    "constellation": "Tel"
+  },
+  {
+    "id": "HIP8796",
+    "name": "Mothallah",
+    "ra": 28.270,
+    "dec": 29.579,
+    "mag": 3.00,
+    "spectral_type": "F6IV",
+    "constellation": "Tri"
+  },
+  {
+    "id": "HIP82273",
+    "name": "Atria",
+    "ra": 252.166,
+    "dec": -69.028,
+    "mag": 1.92,
+    "spectral_type": "K2II-III",
+    "constellation": "TrA"
+  },
+  {
+    "id": "HIP110130",
+    "name": "Alpha Tucanae",
+    "ra": 334.447,
+    "dec": -60.260,
+    "mag": 2.86,
+    "spectral_type": "K3III",
+    "constellation": "Tuc"
+  },
+  {
+    "id": "HIP54061",
+    "name": "Dubhe",
+    "ra": 165.933,
+    "dec": 61.751,
+    "mag": 1.79,
+    "spectral_type": "K1II-III",
+    "constellation": "UMa"
+  },
+  {
+    "id": "HIP11767",
+    "name": "Polaris",
+    "ra": 37.954,
+    "dec": 89.264,
+    "mag": 1.98,
+    "spectral_type": "F7Ib",
+    "constellation": "UMi"
+  },
+  {
+    "id": "HIP44816",
+    "name": "Suhail",
+    "ra": 136.999,
+    "dec": -43.433,
+    "mag": 2.21,
+    "spectral_type": "A1V",
+    "constellation": "Vel"
+  },
+  {
+    "id": "HIP65474",
+    "name": "Spica",
+    "ra": 201.298,
+    "dec": -11.161,
+    "mag": 1.04,
+    "spectral_type": "B1V",
+    "constellation": "Vir"
+  },
+  {
+    "id": "HIP39794",
+    "name": "Beta Volantis",
+    "ra": 121.901,
+    "dec": -66.396,
+    "mag": 3.77,
+    "spectral_type": "K1III",
+    "constellation": "Vol"
+  },
+  {
+    "id": "HIP95947",
+    "name": "Anser",
+    "ra": 292.176,
+    "dec": 27.716,
+    "mag": 4.44,
+    "spectral_type": "M0III",
+    "constellation": "Vul"
+  }
+]
+
+ 

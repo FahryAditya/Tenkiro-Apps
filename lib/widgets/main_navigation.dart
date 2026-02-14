@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import '../screens/home_screen.dart';
-import '../screens/sky_screen.dart';
-import '../screens/earth_screen.dart';
+import '../screens/sky_screen_enchanced.dart'; // UPDATED: Use enhanced version
+import '../screens/hydration_screen.dart';
 import '../screens/air_screen.dart';
-import '../screens/events_screen.dart';
+import '../screens/events_screen_enchanced.dart';
+import '../earthquake_page.dart';
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
@@ -17,10 +18,10 @@ class _MainNavigationState extends State<MainNavigation> {
 
   final List<Widget> _screens = const [
     HomeScreen(),
-    SkyScreen(),
-    EarthScreen(),
+    SkyScreenEnhanced(), // UPDATED: Use enhanced version with hamburger menu
+    HydrationPage(),
     AirScreen(),
-    EventsScreen(),
+    EarthquakePage(),
   ];
 
   @override
@@ -32,7 +33,6 @@ class _MainNavigationState extends State<MainNavigation> {
       ),
       bottomNavigationBar: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
           boxShadow: [
             BoxShadow(
               color: Colors.black.withOpacity(0.1),
@@ -41,62 +41,45 @@ class _MainNavigationState extends State<MainNavigation> {
             ),
           ],
         ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            BottomNavigationBar(
-              backgroundColor: Colors.transparent,
-              elevation: 0,
-              currentIndex: _currentIndex,
-              onTap: (index) {
-                setState(() {
-                  _currentIndex = index;
-                });
-              },
-              type: BottomNavigationBarType.fixed,
-              selectedItemColor: const Color(0xFF395886),
-              unselectedItemColor: Colors.black54,
-              selectedFontSize: 12,
-              unselectedFontSize: 11,
-              selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.wb_sunny_outlined),
-                  activeIcon: Icon(Icons.wb_sunny),
-                  label: 'Home',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.nights_stay_outlined),
-                  activeIcon: Icon(Icons.nights_stay),
-                  label: 'Sky',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.public_outlined),
-                  activeIcon: Icon(Icons.public),
-                  label: 'Earth',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.air_outlined),
-                  activeIcon: Icon(Icons.air),
-                  label: 'Air',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.event_outlined),
-                  activeIcon: Icon(Icons.event),
-                  label: 'Events',
-                ),
-              ],
+        child: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+          type: BottomNavigationBarType.fixed,
+          selectedItemColor: const Color(0xFF395886),
+          unselectedItemColor: Colors.black54,
+          selectedFontSize: 12,
+          unselectedFontSize: 11,
+          selectedLabelStyle: const TextStyle(fontWeight: FontWeight.w600),
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.wb_sunny_outlined),
+              activeIcon: Icon(Icons.wb_sunny),
+              label: 'Home',
             ),
-            const Padding(
-              padding: EdgeInsets.only(bottom: 4.0),
-              child: Text(
-                'Haruxa Fahry Aditya',
-                style: TextStyle(
-                  fontSize: 10,
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.nights_stay_outlined),
+              activeIcon: Icon(Icons.nights_stay),
+              label: 'Sky',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                  Icons.water_drop_outlined), // CHANGED: public → water_drop
+              activeIcon: Icon(Icons.water_drop),
+              label: 'Water', // CHANGED: Earth → Water
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.air_outlined),
+              activeIcon: Icon(Icons.air),
+              label: 'Air',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.event_outlined),
+              activeIcon: Icon(Icons.event),
+              label: 'Disaster',
             ),
           ],
         ),
@@ -104,9 +87,3 @@ class _MainNavigationState extends State<MainNavigation> {
     );
   }
 }
-
-/*
- * © 2026 Haruxa. All rights reserved.
- * Author: Haruxa
- * Description: File ini bagian dari proyek aplikasi cuaca & astronomi.
- */

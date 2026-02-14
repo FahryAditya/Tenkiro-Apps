@@ -19,7 +19,7 @@ class WeatherService {
 
           // CURRENT (valid fields only)
           'current': 'temperature_2m,relative_humidity_2m,apparent_temperature,'
-              'weather_code,wind_speed_10m,cloud_cover,uv_index',
+              'weather_code,wind_speed_10m,cloud_cover,uv_index,visibility',
 
           // HOURLY
           'hourly': 'temperature_2m,apparent_temperature,relative_humidity_2m,'

@@ -9,6 +9,10 @@ class AirScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ✅ MediaQuery untuk responsive
+    final screenHeight = MediaQuery.of(context).size.height;
+    final isSmallDevice = screenHeight < 700;
+
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -21,6 +25,7 @@ class AirScreen extends StatelessWidget {
             ],
           ),
         ),
+        // ✅ SafeArea
         child: SafeArea(
           child: Consumer<WeatherProvider>(
             builder: (context, provider, child) {
@@ -28,29 +33,58 @@ class AirScreen extends StatelessWidget {
                   ? DateTime.parse(provider.weather!.current.time)
                   : DateTime.now();
 
+              // Get city with null safety
+              final String city =
+                  provider.currentLocation?.city ?? 'Loading...';
+
               return RefreshIndicator(
                 onRefresh: () => provider.refreshWeatherData(),
                 backgroundColor: Colors.white,
                 color: const Color(0xFF1976D2),
-                child: ListView(
-                  padding: const EdgeInsets.all(16),
-                  children: [
-                    // Header
-                    _buildHeader(context, provider.currentLocation.city, currentTime),
-                    
-                    const SizedBox(height: 24),
-                    
-                    // Air Quality Card (from existing widget)
-                    const AirQualityCard(),
-                    
-                    const SizedBox(height: 24),
-                    
-                    // Additional Air Info
-                    if (provider.weather != null)
-                      _buildAdditionalAirInfo(provider.weather!),
-                    
-                    const SizedBox(height: 40),
-                  ],
+                // ✅ SingleChildScrollView dengan physics yang tepat
+                child: SingleChildScrollView(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isSmallDevice ? 12 : 16,
+                      vertical: isSmallDevice ? 12 : 16,
+                    ),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min, // ✅ Important!
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        // Header
+                        _buildHeader(
+                          context,
+                          city,
+                          currentTime,
+                          isSmallDevice,
+                        ),
+
+                        SizedBox(height: isSmallDevice ? 12 : 16), // ✅ Reduced
+
+                        // Air Quality Card
+                        const AirQualityCard(),
+
+                        SizedBox(height: isSmallDevice ? 12 : 16), // ✅ Reduced
+
+                        // Additional Air Info
+                        if (provider.weather != null)
+                          _buildAdditionalAirInfo(
+                            provider.weather!,
+                            isSmallDevice,
+                          ),
+
+                        SizedBox(height: isSmallDevice ? 12 : 16), // ✅ Reduced
+
+                        // Pollutants Info
+                        _buildPollutantsInfo(isSmallDevice),
+
+                        // ✅ Bottom padding for BottomNav (increased to 100)
+                        SizedBox(height: 100),
+                      ],
+                    ),
+                  ),
                 ),
               );
             },
@@ -60,43 +94,53 @@ class AirScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildHeader(BuildContext context, String city, DateTime time) {
+  Widget _buildHeader(
+    BuildContext context,
+    String city,
+    DateTime time,
+    bool isSmallDevice,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
-          children: [
-            const Icon(Icons.air, color: Colors.white, size: 28),
-            const SizedBox(width: 12),
-            const Text(
-              'Air Quality',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.w700,
-                color: Colors.white,
-                letterSpacing: 0.5,
-              ),
-            ),
-          ],
+        Text(
+          'Kualitas Udara',
+          style: TextStyle(
+            fontSize: isSmallDevice ? 24 : 28, // ✅ Reduced
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+            letterSpacing: -0.5,
+          ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: isSmallDevice ? 4 : 6), // ✅ Reduced
         Row(
           children: [
-            const Icon(Icons.location_on, color: Colors.white70, size: 16),
-            const SizedBox(width: 4),
-            Text(
-              city,
-              style: const TextStyle(
-                fontSize: 14,
-                color: Colors.white70,
+            Icon(
+              Icons.location_on,
+              color: Colors.white.withOpacity(0.9),
+              size: isSmallDevice ? 14 : 16, // ✅ Reduced
+            ),
+            const SizedBox(width: 6),
+            Flexible(
+              child: Text(
+                city,
+                style: TextStyle(
+                  fontSize: isSmallDevice ? 12 : 14, // ✅ Reduced
+                  color: Colors.white.withOpacity(0.9),
+                  fontWeight: FontWeight.w500,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             const SizedBox(width: 12),
-            Text(
-              DateFormat('EEEE, d MMM yyyy', 'id_ID').format(time),
-              style: const TextStyle(
-                fontSize: 14,
-                color: Colors.white60,
+            Flexible(
+              child: Text(
+                DateFormat('HH:mm, dd MMM', 'id_ID').format(time),
+                style: TextStyle(
+                  fontSize: isSmallDevice ? 11 : 13, // ✅ Reduced
+                  color: Colors.white.withOpacity(0.8),
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
           ],
@@ -105,135 +149,81 @@ class AirScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildAdditionalAirInfo(dynamic weather) {
+  Widget _buildAdditionalAirInfo(dynamic weather, bool isSmallDevice) {
     return Container(
-      padding: const EdgeInsets.all(20),
+      padding: EdgeInsets.all(isSmallDevice ? 12 : 16), // ✅ Reduced
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.15),
-        borderRadius: BorderRadius.circular(24),
+        borderRadius: BorderRadius.circular(20),
         border: Border.all(
           color: Colors.white.withOpacity(0.3),
-          width: 1.5,
+          width: 1,
         ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                  color: Colors.white.withOpacity(0.2),
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const Icon(
-                  Icons.info_outline,
-                  color: Colors.white,
-                  size: 24,
-                ),
-              ),
-              const SizedBox(width: 12),
-              const Text(
-                'Atmospheric Conditions',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: Colors.white,
-                ),
-              ),
-            ],
+          Text(
+            'Informasi Tambahan',
+            style: TextStyle(
+              fontSize: isSmallDevice ? 14 : 16, // ✅ Reduced
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+            ),
           ),
-          const SizedBox(height: 24),
-          
-          _buildAtmosphericRow(
-            Icons.cloud,
-            'Cloud Cover',
-            '${weather.current.cloudCover}%',
-          ),
-          const SizedBox(height: 16),
-          
-          _buildAtmosphericRow(
+          SizedBox(height: isSmallDevice ? 10 : 12), // ✅ Reduced
+          _buildInfoRow(
             Icons.visibility,
-            'Visibility',
-            '${weather.current.visibility.toStringAsFixed(1)} km',
+            'Visibilitas',
+            '${weather.current.visibility ~/ 1000} km',
+            isSmallDevice,
           ),
-          const SizedBox(height: 16),
-          
-          _buildAtmosphericRow(
-            Icons.water_drop,
-            'Humidity',
+          SizedBox(height: isSmallDevice ? 7 : 9), // ✅ Reduced
+          _buildInfoRow(
+            Icons.cloud,
+            'Tutupan Awan',
+            '${weather.current.cloudCover}%',
+            isSmallDevice,
+          ),
+          SizedBox(height: isSmallDevice ? 7 : 9), // ✅ Reduced
+          _buildInfoRow(
+            Icons.opacity,
+            'Kelembaban',
             '${weather.current.humidity}%',
-          ),
-          const SizedBox(height: 16),
-          
-          _buildAtmosphericRow(
-            Icons.speed,
-            'Pressure',
-            '${weather.current.pressure} hPa',
-          ),
-          
-          const SizedBox(height: 24),
-          
-          // Health Tips
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.1),
-              borderRadius: BorderRadius.circular(16),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: const [
-                    Icon(Icons.health_and_safety, color: Colors.white, size: 20),
-                    SizedBox(width: 8),
-                    Text(
-                      'Health Tips',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  _getHealthTips(weather.current.humidity, weather.current.cloudCover),
-                  style: const TextStyle(
-                    fontSize: 13,
-                    color: Colors.white,
-                    height: 1.5,
-                  ),
-                ),
-              ],
-            ),
+            isSmallDevice,
           ),
         ],
       ),
     );
   }
 
-  Widget _buildAtmosphericRow(IconData icon, String label, String value) {
+  Widget _buildInfoRow(
+    IconData icon,
+    String label,
+    String value,
+    bool isSmallDevice,
+  ) {
     return Row(
       children: [
-        Icon(icon, color: Colors.white, size: 20),
+        Icon(
+          icon,
+          color: Colors.white.withOpacity(0.9),
+          size: isSmallDevice ? 18 : 20, // ✅ Reduced
+        ),
         const SizedBox(width: 12),
         Expanded(
           child: Text(
             label,
             style: TextStyle(
-              fontSize: 14,
-              color: Colors.white.withOpacity(0.8),
+              fontSize: isSmallDevice ? 12 : 13, // ✅ Reduced
+              color: Colors.white.withOpacity(0.9),
             ),
           ),
         ),
         Text(
           value,
-          style: const TextStyle(
-            fontSize: 14,
+          style: TextStyle(
+            fontSize: isSmallDevice ? 13 : 14, // ✅ Reduced
             fontWeight: FontWeight.w600,
             color: Colors.white,
           ),
@@ -242,15 +232,39 @@ class AirScreen extends StatelessWidget {
     );
   }
 
-  String _getHealthTips(int humidity, int cloudCover) {
-    if (humidity > 80) {
-      return '💧 Kelembaban tinggi. Minum banyak air dan hindari aktivitas berat di luar ruangan.';
-    } else if (humidity < 30) {
-      return '🏜️ Kelembaban rendah. Gunakan pelembab dan hindari dehidrasi.';
-    } else if (cloudCover > 80) {
-      return '☁️ Langit berawan. Kondisi baik untuk aktivitas outdoor tanpa sinar UV berlebih.';
-    } else {
-      return '✅ Kondisi atmosfer normal. Cocok untuk aktivitas luar ruangan.';
-    }
+  Widget _buildPollutantsInfo(bool isSmallDevice) {
+    return Container(
+      padding: EdgeInsets.all(isSmallDevice ? 12 : 16), // ✅ Reduced
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.15),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(
+          color: Colors.white.withOpacity(0.3),
+          width: 1,
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Polutan Udara',
+            style: TextStyle(
+              fontSize: isSmallDevice ? 14 : 16, // ✅ Reduced
+              fontWeight: FontWeight.w700,
+              color: Colors.white,
+            ),
+          ),
+          SizedBox(height: isSmallDevice ? 8 : 12), // ✅ Reduced
+          Text(
+            'Informasi kualitas udara diambil dari sensor lokal dan satelit untuk memberikan data akurat.',
+            style: TextStyle(
+              fontSize: isSmallDevice ? 11 : 12, // ✅ Reduced
+              color: Colors.white.withOpacity(0.8),
+              height: 1.5,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

@@ -79,7 +79,7 @@ class WeatherDetails extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
               _buildDetailGrid(
                 context,
                 [
@@ -150,14 +150,15 @@ class WeatherDetails extends StatelessWidget {
     Color secondaryColor,
     DateTime currentTime,
   ) {
+    final isSmallScreen = MediaQuery.of(context).size.height < 700;
     return GridView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        childAspectRatio: 1.4,
-        crossAxisSpacing: 12,
-        mainAxisSpacing: 12,
+        childAspectRatio: isSmallScreen ? 1.3 : 1.4,
+        crossAxisSpacing: isSmallScreen ? 8 : 12,
+        mainAxisSpacing: isSmallScreen ? 8 : 12,
       ),
       itemCount: items.length,
       itemBuilder: (context, index) {

@@ -16,14 +16,15 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMixin {
+class _HomeScreenState extends State<HomeScreen>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true; // Keep state alive for better performance
 
   @override
   Widget build(BuildContext context) {
     super.build(context); // Required for AutomaticKeepAliveClientMixin
-    
+
     return Consumer<WeatherProvider>(
       builder: (context, provider, child) {
         final currentTime = provider.weather != null
@@ -45,9 +46,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
             duration: const Duration(milliseconds: 1500),
             curve: Curves.easeInOut,
             decoration: BoxDecoration(
-              gradient: isSunset
-                  ? ColorUtils.getSunsetGradient()
-                  : null,
+              gradient: isSunset ? ColorUtils.getSunsetGradient() : null,
               color: isSunset ? null : backgroundColor,
             ),
             child: SafeArea(
@@ -65,7 +64,8 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
     );
   }
 
-  Widget _buildContent(WeatherProvider provider, Color textColor, DateTime currentTime) {
+  Widget _buildContent(
+      WeatherProvider provider, Color textColor, DateTime currentTime) {
     if (provider.isLoading && provider.weather == null) {
       return Center(
         child: Column(
@@ -204,9 +204,9 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
 
     // Use ListView with cacheExtent for better performance
     return ListView(
-      padding: EdgeInsets.zero,
-      physics: const BouncingScrollPhysics(), // Better scroll physics
-      cacheExtent: 500, // Cache widgets for smoother scrolling
+      padding: const EdgeInsets.only(bottom: 100),
+      physics: const BouncingScrollPhysics(),
+      cacheExtent: 500,
       children: const [
         WeatherHeader(),
         SizedBox(height: 24),
@@ -219,7 +219,7 @@ class _HomeScreenState extends State<HomeScreen> with AutomaticKeepAliveClientMi
         WeatherDetails(),
         SizedBox(height: 28),
         AirQualityCard(),
-        SizedBox(height: 40),
+        SizedBox(height: 100),
       ],
     );
   }

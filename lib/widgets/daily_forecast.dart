@@ -59,26 +59,26 @@ class _DailyForecastState extends State<DailyForecast> {
               Row(
                 children: [
                   Container(
-                    padding: const EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(8),
                     decoration: BoxDecoration(
                       color: ColorUtils.getPrimaryColor(currentTime)
                           .withOpacity(0.2),
-                      borderRadius: BorderRadius.circular(12),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: Icon(
                       Icons.calendar_today,
                       color: ColorUtils.getPrimaryColor(currentTime),
-                      size: 24,
+                      size: 22,
                     ),
                   ),
-                  const SizedBox(width: 12),
+                  const SizedBox(width: 10),
                   Expanded(
                     child: Text(
                       'Perkiraan $displayDays Hari',
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                         fontWeight: FontWeight.w700,
                         color: textColor,
                       ),
@@ -87,7 +87,7 @@ class _DailyForecastState extends State<DailyForecast> {
                 ],
               ),
 
-              const SizedBox(height: 16),
+              const SizedBox(height: 14),
 
               /// LIST HARIAN
               ...List.generate(
@@ -104,18 +104,18 @@ class _DailyForecastState extends State<DailyForecast> {
 
               /// BUTTON EXPAND
               if (daily.time.length > 7) ...[
-                const SizedBox(height: 12),
+                const SizedBox(height: 10),
                 Center(
                   child: InkWell(
                     onTap: () => setState(() => _isExpanded = !_isExpanded),
-                    borderRadius: BorderRadius.circular(12),
+                    borderRadius: BorderRadius.circular(10),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 12),
+                          horizontal: 18, vertical: 10),
                       decoration: BoxDecoration(
                         color: ColorUtils.getPrimaryColor(currentTime)
                             .withOpacity(0.15),
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(10),
                         border: Border.all(
                           color: ColorUtils.getPrimaryColor(currentTime)
                               .withOpacity(0.3),
@@ -131,14 +131,15 @@ class _DailyForecastState extends State<DailyForecast> {
                             color:
                                 ColorUtils.getPrimaryColor(currentTime),
                           ),
-                          const SizedBox(width: 8),
+                          const SizedBox(width: 6),
                           Text(
                             _isExpanded
                                 ? 'Ciutkan'
                                 : 'Lihat Selengkapnya',
                             style: TextStyle(
                               color: ColorUtils.getPrimaryColor(currentTime),
-                              fontWeight: FontWeight.w700,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 12,
                             ),
                           ),
                         ],
@@ -165,7 +166,7 @@ class _DailyForecastState extends State<DailyForecast> {
   ) {
     final date = DateTime.parse(daily.time[index]);
     final dayName =
-        isToday ? 'Hari Ini' : DateFormat('EEEE', 'id_ID').format(date);
+        isToday ? 'Hari Ini' : DateFormat('EEE', 'id_ID').format(date); // Shorter day name
     final dateStr = DateFormat('d MMM', 'id_ID').format(date);
 
     final weatherCode = daily.weatherCode[index];
@@ -174,13 +175,13 @@ class _DailyForecastState extends State<DailyForecast> {
     final precipitation = daily.precipitationProbability[index];
 
     return Container(
-      margin: const EdgeInsets.symmetric(vertical: 6),
-      padding: const EdgeInsets.all(12),
+      margin: const EdgeInsets.symmetric(vertical: 4),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
         color: isToday
             ? ColorUtils.getPrimaryColor(currentTime).withOpacity(0.15)
             : textColor.withOpacity(0.03),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(14),
         border: Border.all(
           color: isToday
               ? ColorUtils.getPrimaryColor(currentTime).withOpacity(0.4)
@@ -201,18 +202,18 @@ class _DailyForecastState extends State<DailyForecast> {
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 14,
                     fontWeight: FontWeight.w700,
                     color: isToday
                         ? ColorUtils.getPrimaryColor(currentTime)
                         : textColor,
                   ),
                 ),
-                const SizedBox(height: 4),
+                const SizedBox(height: 2),
                 Text(
                   dateStr,
                   style: TextStyle(
-                    fontSize: 12,
+                    fontSize: 11,
                     color: secondaryColor,
                   ),
                 ),
@@ -225,21 +226,21 @@ class _DailyForecastState extends State<DailyForecast> {
             flex: 2,
             child: Container(
               padding:
-                  const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                  const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
               decoration: BoxDecoration(
                 color: Colors.blue.withOpacity(0.15),
-                borderRadius: BorderRadius.circular(12),
+                borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(Icons.water_drop,
-                      size: 14, color: Colors.blue.shade700),
-                  const SizedBox(width: 4),
+                      size: 12, color: Colors.blue.shade700),
+                  const SizedBox(width: 3),
                   Text(
                     '$precipitation%',
                     style: TextStyle(
-                      fontSize: 12,
+                      fontSize: 10,
                       color: Colors.blue.shade700,
                       fontWeight: FontWeight.w700,
                     ),
@@ -255,7 +256,7 @@ class _DailyForecastState extends State<DailyForecast> {
             child: Center(
               child: Text(
                 WeatherUtils.getWeatherIcon(weatherCode, true),
-                style: const TextStyle(fontSize: 28),
+                style: const TextStyle(fontSize: 24),
               ),
             ),
           ),
@@ -268,15 +269,15 @@ class _DailyForecastState extends State<DailyForecast> {
                 Text(
                   '$tempMin°',
                   style: TextStyle(
-                    fontSize: 14,
+                    fontSize: 13,
                     color: secondaryColor,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
-                const SizedBox(width: 6),
+                const SizedBox(width: 4),
                 Expanded(
                   child: Container(
-                    height: 4,
+                    height: 3,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
@@ -288,11 +289,11 @@ class _DailyForecastState extends State<DailyForecast> {
                     ),
                   ),
                 ),
-                const SizedBox(width: 6),
+                const SizedBox(width: 4),
                 Text(
                   '$tempMax°',
                   style: TextStyle(
-                    fontSize: 15,
+                    fontSize: 14,
                     fontWeight: FontWeight.w800,
                     color: textColor,
                   ),

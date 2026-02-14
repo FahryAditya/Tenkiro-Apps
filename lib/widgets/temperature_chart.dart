@@ -41,7 +41,7 @@ class _TemperatureChartState extends State<TemperatureChart> {
         final next24Hours = List.generate(
           24,
           (index) => currentHourIndex + index,
-        ).where((i) => i < hourly.time.length).toList();
+        ).where((i) => i < hourly.time.length).cast<int>().toList();
 
         return Container(
           margin: const EdgeInsets.symmetric(horizontal: 16),
@@ -67,9 +67,9 @@ class _TemperatureChartState extends State<TemperatureChart> {
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 16),
               SizedBox(
-                height: 200,
+                height: 180,
                 child: LineChart(
                   LineChartData(
                     gridData: FlGridData(
@@ -135,8 +135,12 @@ class _TemperatureChartState extends State<TemperatureChart> {
                     borderData: FlBorderData(show: false),
                     minX: 0,
                     maxX: (next24Hours.length - 1).toDouble(),
-                    minY: _getMinTemp(next24Hours, hourly.temperature, hourly.apparentTemperature) - 2,
-                    maxY: _getMaxTemp(next24Hours, hourly.temperature, hourly.apparentTemperature) + 2,
+                    minY: _getMinTemp(next24Hours, hourly.temperature,
+                            hourly.apparentTemperature) -
+                        2,
+                    maxY: _getMaxTemp(next24Hours, hourly.temperature,
+                            hourly.apparentTemperature) +
+                        2,
                     lineBarsData: [
                       // Actual temperature line
                       LineChartBarData(
@@ -164,7 +168,8 @@ class _TemperatureChartState extends State<TemperatureChart> {
                         ),
                         belowBarData: BarAreaData(
                           show: true,
-                          color: ColorUtils.getPrimaryColor(currentTime).withOpacity(0.1),
+                          color: ColorUtils.getPrimaryColor(currentTime)
+                              .withOpacity(0.1),
                         ),
                       ),
                       // Feels-like temperature line
@@ -186,7 +191,8 @@ class _TemperatureChartState extends State<TemperatureChart> {
                     ],
                     lineTouchData: LineTouchData(
                       enabled: true,
-                      touchCallback: (FlTouchEvent event, LineTouchResponse? response) {
+                      touchCallback:
+                          (FlTouchEvent event, LineTouchResponse? response) {
                         if (response == null || response.lineBarSpots == null) {
                           setState(() {
                             touchedIndex = -1;
@@ -198,7 +204,6 @@ class _TemperatureChartState extends State<TemperatureChart> {
                         });
                       },
                       touchTooltipData: LineTouchTooltipData(
-                        tooltipBgColor: cardColor,
                         tooltipRoundedRadius: 8,
                         getTooltipItems: (List<LineBarSpot> touchedSpots) {
                           return touchedSpots.map((spot) {
@@ -223,9 +228,11 @@ class _TemperatureChartState extends State<TemperatureChart> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  _buildLegend('Suhu Aktual', ColorUtils.getPrimaryColor(currentTime), textColor),
+                  _buildLegend('Suhu Aktual',
+                      ColorUtils.getPrimaryColor(currentTime), textColor),
                   const SizedBox(width: 20),
-                  _buildLegend('Terasa Seperti', textColor.withOpacity(0.4), textColor),
+                  _buildLegend(
+                      'Terasa Seperti', textColor.withOpacity(0.4), textColor),
                 ],
               ),
             ],
@@ -258,7 +265,8 @@ class _TemperatureChartState extends State<TemperatureChart> {
     );
   }
 
-  double _getMinTemp(List<int> indices, List<double> temp, List<double> apparent) {
+  double _getMinTemp(
+      List<int> indices, List<double> temp, List<double> apparent) {
     double min = double.infinity;
     for (var i in indices) {
       if (temp[i] < min) min = temp[i];
@@ -267,7 +275,8 @@ class _TemperatureChartState extends State<TemperatureChart> {
     return min;
   }
 
-  double _getMaxTemp(List<int> indices, List<double> temp, List<double> apparent) {
+  double _getMaxTemp(
+      List<int> indices, List<double> temp, List<double> apparent) {
     double max = double.negativeInfinity;
     for (var i in indices) {
       if (temp[i] > max) max = temp[i];
